@@ -12,6 +12,7 @@ module.exports = (dataLoader) => {
     }) 
     .then(data => res.status(200).json(data))
     .catch(err => res.status(400).json(err));
+
   }); 
   
   //Retrieve bookings from session token
@@ -43,6 +44,5 @@ module.exports = (dataLoader) => {
     .catch(err => res.status(400).json(err))
   });
 
-  
   return bookingsController;
 };

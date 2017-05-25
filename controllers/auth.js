@@ -4,9 +4,9 @@ const md5          = require('md5');
 
 module.exports = (dataLoader) => {
   const authController = express.Router();
+  
   // Create a new user (signup)
   authController.post('/users', (req, res) => {
-    // console.log(req.body);
     dataLoader.createUser({
       email: req.body.email,
       password: req.body.password,
@@ -43,7 +43,6 @@ module.exports = (dataLoader) => {
       res.status(401).json({ error: 'Invalid session token' });
     }
   });
-
 
   //Retrieve current user
   authController.get('/me', onlyLoggedIn, (req, res) => {
